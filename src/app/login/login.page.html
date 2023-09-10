@@ -1,0 +1,30 @@
+<app-header></app-header>
+
+
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <form [formGroup]="formulariologin">
+
+    <ion-card>
+      <img
+        src="https://img.freepik.com/vector-premium/icono-usuario-simbolo-persona-humana-icono-perfil-social-signo-inicio-sesion-avatar-simbolo-usuario-web-boton-web-interfaz-usuario-blanco-neumorphic-ui-ux-neumorfismo-eps-vectoriales-10_399089-2757.jpg?w=2000"
+        class="img-size" />
+
+      <ion-card-content>
+
+        <ion-input formControlName="nombre" label="Nombre alumno" label-placement="floating" fill="outline"
+          placeholder="Ingrese su nombre"></ion-input>
+        <ion-input formControlName="contrasena" type="password" label="Contraseña" label-placement="floating"
+          fill="outline" placeholder="Ingrese su contraseña"></ion-input>
+
+      </ion-card-content>
+
+    </ion-card>
+  </form>
+
+
+  <ion-button expand="block" (click)="ingresar()">INGRESAR</ion-button>
+  <br>
+  <br>
+  <ion-button fill="outline" (click)="recuperar()">Recuperar contraseña</ion-button>
+</ion-content>
