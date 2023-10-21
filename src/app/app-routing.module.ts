@@ -23,8 +23,19 @@ const routes: Routes = [
   },
   {
     path: 'inicio',
-    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule),
-    canActivate: [AuthGuard] 
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
+    
+  },
+  {
+    path: 'alumnos',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./alumnos/alumnos.module').then( m => m.AlumnosPageModule)
+  },
+  {
+    path: 'detalle-alumnos',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./detalle-alumnos/detalle-alumnos.module').then( m => m.DetalleAlumnosPageModule)
   },
 ];
 

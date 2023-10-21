@@ -7,8 +7,21 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class StateService {
 
+  private personajes:BehaviorSubject<any> = new BehaviorSubject(null);
 
-  nombre:BehaviorSubject<string> = new BehaviorSubject('Alumno');
+
+  private isLogged:BehaviorSubject<boolean> =
+  new BehaviorSubject<boolean>(false);
+  
+  getIsLogged(){
+    return this.isLogged.asObservable();
+  }
+
+  setIsLogged(value:boolean){
+    this.isLogged.next(value);
+  }
+
+  nombre:BehaviorSubject<string> = new BehaviorSubject('');
   titulo:BehaviorSubject<string> = new BehaviorSubject('RegistraApp');
 
 
@@ -28,6 +41,14 @@ export class StateService {
 
   set setTitulo(titulo:string){
     this.titulo.next(titulo);
+  }
+
+  public obtenerPersonajes(){
+    return this.personajes.asObservable();
+  }
+
+  public personajesValues(personajes:any){
+    this.personajes.next(personajes);
   }
   constructor() { }
 }

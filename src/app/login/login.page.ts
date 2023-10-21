@@ -29,18 +29,9 @@ export class LoginPage implements OnInit {
 
   }
 
-  // initForms() {
-  //   this.formulariologin = this.fb.group({
-  //     nombre: [, Validators.required],
-  //     contrasena: [, Validators.required]
-  //   });
-  // }
-
-  // validarForm(): any {
-  //   if (this.formulariologin.value.nombre === null || this.formulariologin.value.contrasena === null) {
-  //     console.log("Están vacios")
-  //   }
-  // }
+  login() {
+    this.stateService.setIsLogged(true);
+  }
 
   async ingresar() {
     const alumno = {
@@ -48,7 +39,8 @@ export class LoginPage implements OnInit {
       contrasena: this.formulariologin.get('contrasena')?.value,
     };
 
-    this.stateService.setNombre = alumno.nombre;
+    this.stateService.setNombre = alumno.nombre; // suponiendo que setNombre es un setter o método en tu servicio
+
     if (alumno.nombre == '' || alumno.contrasena == '') {
       const alert = await this.alertController.create({
         header: 'Error',
@@ -57,7 +49,10 @@ export class LoginPage implements OnInit {
       });
 
       await alert.present();
+
     } else {
+      this.login(); // ¡Esto marca al usuario como logueado!
+
       const successAlert = await this.alertController.create({
         header: '¡Ingreso exitoso!',
         message: 'Gracias por registrar tu asistencia',
@@ -71,7 +66,8 @@ export class LoginPage implements OnInit {
 
       await successAlert.present();
     }
-}
+  }
+
 
 
 

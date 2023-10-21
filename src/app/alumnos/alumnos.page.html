@@ -1,0 +1,12 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>alumnos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div *ngFor = "let character of characters?.results">
+    <p>{{character?.name}}</p>
+    <button type="button" (click)="detalle(character)">ver</button>
+  </div>
+</ion-content>
