@@ -25,6 +25,8 @@ export class AlumnosPage implements OnInit {
     this.rmService.getAllUsers().subscribe(
       (data)=>{
         this.users= data;
+        localStorage.setItem('user', JSON.stringify(data));
+        console.log(data);
       }
     )
   }
