@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../service/api.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-detalle-alumnos',
@@ -8,18 +10,18 @@ import { Component, OnInit } from '@angular/core';
 export class DetalleAlumnosPage implements OnInit {
   public personaje:any;
 
-  constructor() { }
+  constructor(private api:ApiService,
+              private activateRoute:ActivatedRoute) { }
+  public idUser=this.activateRoute.snapshot.paramMap.get('idUser');
+  public userDetalle:any;
 
   ngOnInit() {
-    const _personaje = localStorage.getItem('characters');
-    
-    if(_personaje == null){
+    this.api.getASingleUser(this.idUser).subscribe(
+      (data)=>{
+        this.userDetalle=data;
+      }
+    )
 
-    }
-    else{
-      
-      this.personaje = JSON.parse(_personaje);
-    }
   }
 
 }

@@ -13,7 +13,9 @@ export class LoginPage implements OnInit {
 
   formulariologin: FormGroup;
 
-  constructor(private router: Router, private fb: FormBuilder, private stateService: StateService, private alertController: AlertController,) {
+  constructor(private router: Router, private fb: FormBuilder,
+              private stateService: StateService,
+              private alertController: AlertController,) {
 
     this.formulariologin = this.fb.group({
       nombre: [''],
@@ -24,7 +26,11 @@ export class LoginPage implements OnInit {
 
   }
 
-  ngOnInit() {
+  ionViewDidEnter(){ //se utiliza para asegurarnos de que se pueda ejecutar pese al inicio del sitio con ngInit.
+    this.stateService.setTitulo = 'Iniciar sesión'
+  }
+
+  ngOnInit() { //en este ciclo de vida es cuando el sitio inicia.
     this.stateService.setTitulo = 'Iniciar sesión'
 
   }

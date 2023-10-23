@@ -2,29 +2,49 @@
 
 
 
-<ion-content [fullscreen]="true" class="ion-padding">
+<ion-content  [fullscreen]="true" class="ion-padding background">
   <form [formGroup]="formulariologin">
-
-    <ion-card>
-      <img
+    <ion-card class="card-background">
+      <!-- <img
         src="https://img.freepik.com/vector-premium/icono-usuario-simbolo-persona-humana-icono-perfil-social-signo-inicio-sesion-avatar-simbolo-usuario-web-boton-web-interfaz-usuario-blanco-neumorphic-ui-ux-neumorfismo-eps-vectoriales-10_399089-2757.jpg?w=2000"
-        class="img-size" />
-
+        class="img-size" /> -->
+        <div id="caja_icono">
+          <ion-icon  style="font-size: 297px;
+          color: #fffdfff2;" class="ion-text-center" name="person-circle-outline"></ion-icon>
+        </div>
       <ion-card-content>
-
-        <ion-input formControlName="nombre" label="Nombre alumno" label-placement="floating" fill="outline"
-          placeholder="Ingrese su nombre"></ion-input>
-        <ion-input formControlName="contrasena" type="password" label="Contraseña" label-placement="floating"
-          fill="outline" placeholder="Ingrese su contraseña"></ion-input>
-
+        <ion-row>
+          <ion-col>
+            <ion-item fill="outline">
+              <ion-label position="floating">Nombre alumno</ion-label>
+              <ion-input formControlName="nombre"
+              placeholder="Ingrese su nombre"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item fill="outline">
+              <ion-label position="floating">Contraseña</ion-label>
+              <ion-input formControlName="contrasena" type="password"
+               placeholder="Ingrese su contraseña"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item style="--background: transparent;" lines="none">
+              <!-- <ion-button fill="outline" (click)="recuperar()">Recuperar contraseña</ion-button> -->
+              <a (click)="recuperar()">Has olvidado tu contraseña?</a>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button expand="block" (click)="ingresar()">INGRESAR</ion-button>
+          </ion-col>
+        </ion-row>
       </ion-card-content>
-
     </ion-card>
   </form>
-
-
-  <ion-button expand="block" (click)="ingresar()">INGRESAR</ion-button>
-  <br>
-  <br>
-  <ion-button fill="outline" (click)="recuperar()">Recuperar contraseña</ion-button>
 </ion-content>

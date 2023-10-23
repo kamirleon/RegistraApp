@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { StateService } from '../state/state.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +17,8 @@ export class HeaderComponent  implements OnInit {
   nombre: string ='';
 
 
-  constructor(private stateService:StateService) { }
+  constructor(private stateService:StateService,
+              private router:Router) { }
 
   ngOnInit() {
 
@@ -27,6 +29,10 @@ export class HeaderComponent  implements OnInit {
       this.nombre =nombre;
     })
 
+  }
+
+  cerrarSesion(){
+    this.router.navigate(['login']);
   }
 
 }

@@ -6,9 +6,23 @@ import {HttpClient} from '@angular/common/http'
 })
 export class ApiService {
   private BASE_URL = 'https://rickandmortyapi.com/api';
+  private BASE_URL_DUMMY='https://dummyjson.com'
   constructor(private http: HttpClient) { }
 
-  public getCharacters(){
-    return this.http.get(`${this.BASE_URL}/character`)
+  // public getCharacters(){
+  //   return this.http.get(`${this.BASE_URL}/character`)
+  // }
+
+  //COMIENZO DE LA API USUARIOS! 
+
+  //Obtener todo los usuarios.
+  public getAllUsers(){
+    return this.http.get(`${this.BASE_URL_DUMMY}/users`)
   }
+  //Obtener Informacion  de un usuario 
+  public getASingleUser(id_user:any){
+    return this.http.get(`${this.BASE_URL_DUMMY}/users/${id_user}`)
+  }
+
+
 }
