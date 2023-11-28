@@ -9,9 +9,6 @@ export class ApiService {
   private BASE_URL_DUMMY='https://dummyjson.com'
   constructor(private http: HttpClient) { }
 
-  // public getCharacters(){
-  //   return this.http.get(`${this.BASE_URL}/character`)
-  // }
 
   //COMIENZO DE LA API USUARIOS! 
 
